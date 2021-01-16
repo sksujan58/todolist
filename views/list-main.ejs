@@ -1,0 +1,69 @@
+
+<%- include("header") -%>
+    <div class="box" id="heading">
+
+    <h1>
+        <%= Title%>
+    </h1>
+</div>
+
+<div class="box">
+
+
+        <% for(var i=0;i<new_items.length;i++) { %>
+            <form action="/delete" method="POST">
+                <div class="item">
+                    <input type="checkbox" name="checkBox" id="" onchange="this.form.submit()" value="<%= new_items[i]._id %>"> 
+                <p> <%= new_items[i].itemName %> </p>
+            </form>
+           
+
+        </div>
+        <% } %>
+
+        <% if( Title =="work List"){ %>
+
+            <form action="/work" method="POST" class="item">
+                <input type="text" placeholder="new work" name="Todo_work" autocomplete="off"  >
+                <button type="submit" class="submit-button" > + </button>
+            </form>
+            <div class="page-button">
+            <button ><a class="page-change" href="/">home</a></button>
+            <button  ><a class="page-change" href="/about">about</a></button>
+        </div>
+
+            <%}else { %>
+
+
+        <form action="/" method="POST" class="item">
+            <input type="text" placeholder="new item" name="Todo_manual" autocomplete="off"  >
+            <button type="submit" class="submit-button"> + </button>
+        </form>
+        <div class="page-button">
+           
+            <button  ><a class="page-change" href="/about">about</a></button>
+        </div>
+
+        <%}%>
+    
+
+</div>
+
+
+<%- include("footer") -%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
